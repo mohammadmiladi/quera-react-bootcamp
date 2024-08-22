@@ -1,6 +1,7 @@
 import Toggle from "../toggle/Toggle";
 import Stepper from "../stepper/Stepper";
 import List from "../list/List";
+import Form from "../form/Form";
 
 const Content = () => {
   return (
@@ -8,6 +9,7 @@ const Content = () => {
       <Toggle />
       <Stepper />
       <List />
+      <Form />
     </div>
   );
 };
