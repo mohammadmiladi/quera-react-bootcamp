@@ -1,9 +1,11 @@
-import styles from "./content.module.css";
+import Toggle from "../toggle/Toggle";
+import Stepper from "../stepper/Stepper";
 
 const Content = () => {
   return (
-    <div className={styles.content}>
-      <span>Content</span>
+    <div className=" bg-gray-100 py-2 px-7">
+      <Toggle />
+      <Stepper />
     </div>
   );
 };
