@@ -1,0 +1,13 @@
+.logoContainer {
+  grid-area: left-header;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--gray-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo {
+  width: 30px;
+}
