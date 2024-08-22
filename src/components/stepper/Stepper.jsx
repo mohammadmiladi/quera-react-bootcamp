@@ -3,19 +3,56 @@ import { useState } from "react";
 
 const Stepper = () => {
   const [step, setStep] = useState(1);
-  
+
   const changeStep = (payload) => {
     setStep(payload);
   };
+  const prev = () => {
+    step > 1 && setStep(step - 1);
+  };
+  const next = () => {
+    step < 3 && setStep(step + 1);
+  };
 
+  const buttonStyle =
+    "border-solid text-black py-1 px-7 rounded bg-blue-200 border";
+
+  const buttonActiveStyle =
+    "border-solid text-white py-1 px-7 rounded bg-blue-600 border";
   return (
-    <div className="my-4 bg-white rounded-md p-7">
+    <div className="my-4 bg-white dark:bg-gray-800 rounded-md p-7">
       <div className=" flex gap-10 items-center justify-center">
-        <Button buttonClick={() => changeStep(1)} title="مرحله اول" />
-        <Button buttonClick={() => changeStep(2)} title="مرحله دوم" />
-        <Button buttonClick={() => changeStep(3)} title="مرحله سوم" />
+        <Button
+          buttonStyle={step >= 1 ? buttonActiveStyle : buttonStyle}
+          buttonClick={() => changeStep(1)}
+          title="مرحله اول"
+        />
+        <Button
+          buttonStyle={step >= 2 ? buttonActiveStyle : buttonStyle}
+          buttonClick={() => changeStep(2)}
+          title="مرحله دوم"
+        />
+        <Button
+          buttonStyle={step >= 3 ? buttonActiveStyle : buttonStyle}
+          buttonClick={() => changeStep(3)}
+          title="مرحله سوم"
+        />
       </div>
-      <p>{step}</p>
+      <div>
+        <p>{step}</p>
+      </div>
+      <div className="flex gap-10">
+        <Button
+          title="Prev"
+          buttonClick={() => prev()}
+          buttonStyle=" p-4 bg-violet-700 rounded text-white"
+        />
+        <Button
+          title="Next"
+          buttonClick={() => next()}
+          buttonStyle=" p-4 bg-violet-700 rounded text-white"
+        />
+      </div>
     </div>
   );
 };

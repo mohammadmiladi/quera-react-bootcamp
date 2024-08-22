@@ -9,7 +9,7 @@ const Toggle = () => {
   const dark = "bg-blue-600 p-2 text-white rounded";
 
   return (
-    <div className="bg-white rounded-lg p-4">
+    <div className="bg-white dark:bg-gray-800 rounded-lg p-4">
       <button onClick={onHandleToggle} className={isOn ? light : dark}>
         {isOn ? "Turn Off" : "Turn On"}
       </button>
