@@ -3,6 +3,8 @@ const Input = ({
   label = "label",
   type = "text",
   inputStyle,
+  inputError,
+  ...props
 }) => {
   return (
     <div className="flex flex-col">
@@ -17,7 +19,9 @@ const Input = ({
         className={inputStyle}
         type={type}
         placeholder={placeholder}
+        {...props}
       />
+      <p className=" text-red-500 text-sm">{inputError}</p>
     </div>
   );
 };
