@@ -2,6 +2,10 @@ import Toggle from "../toggle/Toggle";
 import Stepper from "../stepper/Stepper";
 import List from "../list/List";
 import Timer from "../timer/Timer";
+import TitleChanger from "../titleChanger/TitleChanger";
+import Posts from "../posts/Posts";
+import LocalStorage from "../localStorage/LocalStorage";
+import Resize from "../resize/Resize";
 import ProductList from "../productList/ProductList";
 import Form from "../form/Form";
 import { useState } from "react";
@@ -11,6 +15,10 @@ const Content = () => {
 
   return (
     <div className=" bg-gray-100 py-2 px-7">
+      <TitleChanger />
+      <Posts />
+      <LocalStorage />
+      <Resize />
       <Timer />
       <Toggle />
       <Stepper />

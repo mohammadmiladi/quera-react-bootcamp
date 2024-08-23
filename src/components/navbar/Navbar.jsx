@@ -3,15 +3,33 @@ import Icon from "../../assets/images/icon.svg";
 import Search from "../../assets/images/search.png";
 import { IoMoon } from "react-icons/io5";
 import { IoSunny } from "react-icons/io5";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState("");
 
-  const darkModeHandler = () => {
-    setDark(!dark);
-    document.body.classList.toggle("dark");
-  };
+  // useEffect(() => {
+  //   const d = localStorage.getItem("darkMode");
+  //   if (d !== null) {
+  //     setDark(d === "true");
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   if (dark !== null) {
+  //     localStorage.setItem("darkMode", dark);
+  //     if (dark) {
+  //       document.body.classList.add("dark");
+  //     } else {
+  //       document.body.classList.remove("dark");
+  //     }
+  //   }
+  // }, [dark]);
+
+  // const darkModeHandler = () => {
+  //   setDark(!dark);
+  //   document.body.classList.toggle("dark");
+  // };
 
   return (
     <div className={styles.navbar}>
@@ -25,7 +43,7 @@ const Navbar = () => {
         </div>
       </div>
       <div>
-        <button onClick={() => darkModeHandler()}>
+        <button onClick={() => setDark(!dark)}>
           {dark && <IoSunny />}
           {!dark && <IoMoon />}
         </button>
