@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Card from "../common/Card";
 
 const Toggle = () => {
   const [isOn, setIsOn] = useState(false);
@@ -9,12 +10,12 @@ const Toggle = () => {
   const dark = "bg-blue-600 p-2 text-white rounded";
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg p-4">
+    <Card>
       <button onClick={onHandleToggle} className={isOn ? light : dark}>
         {isOn ? "Turn Off" : "Turn On"}
       </button>
       <p>{isOn ? "True" : "False"}</p>
-    </div>
+    </Card>
   );
 };
 

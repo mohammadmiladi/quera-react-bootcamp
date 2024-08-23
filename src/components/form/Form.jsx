@@ -3,7 +3,7 @@ import Button from "../common/Button";
 import Textarea from "../common/Textarea";
 import { useState } from "react";
 
-const Form = () => {
+const Form = ({ items, setItems }) => {
   // const [productName, setProductName] = useState("");
   const [formData, setFormData] = useState({
     productName: "",
@@ -28,6 +28,7 @@ const Form = () => {
       return;
     }
     console.log(formData);
+    setItems([...items, formData])
     resetForm();
   };
 

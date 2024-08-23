@@ -1,5 +1,6 @@
 import Button from "../common/Button";
 import { useState } from "react";
+import Card from "../common/Card";
 
 const Stepper = () => {
   const [step, setStep] = useState(1);
@@ -20,7 +21,7 @@ const Stepper = () => {
   const buttonActiveStyle =
     "border-solid text-white py-1 px-7 rounded bg-blue-600 border";
   return (
-    <div className="my-4 bg-white dark:bg-gray-800 rounded-md p-7">
+    <Card>
       <div className=" flex gap-10 items-center justify-center">
         <Button
           buttonStyle={step >= 1 ? buttonActiveStyle : buttonStyle}
@@ -53,7 +54,7 @@ const Stepper = () => {
           buttonStyle=" p-4 bg-violet-700 rounded text-white"
         />
       </div>
-    </div>
+    </Card>
   );
 };
 
