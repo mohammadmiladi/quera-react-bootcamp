@@ -13,6 +13,12 @@ import TimerPage from "./pages/timer/Timer";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HooksPage from "./pages/hooks/Hooks";
 import UseReducerPage from "./pages/hooks/useReducer/UseReducer";
+import PostsPage from "./pages/posts/Posts";
+import UseRefPage from "./pages/useRef/UseRef";
+import UseMemoPage from "./pages/useMemo/UseMemo";
+import UseLayoutEffectPage from "./pages/useLayoutEffect/UseLayoutEffect";
+import ContextPage from "./pages/contextPage/ContextPage";
+import ProductsPage from "./pages/productsPage/ProductsPage";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +57,30 @@ const router = createBrowserRouter([
         element: <UseReducerPage />,
       },
     ],
+  },
+  {
+    path: "/posts",
+    element: <PostsPage />,
+  },
+  {
+    path: "/useRef",
+    element: <UseRefPage />,
+  },
+  {
+    path: "/UseMemo",
+    element: <UseMemoPage />,
+  },
+  {
+    path: "/UseLayoutEffect",
+    element: <UseLayoutEffectPage />,
+  },
+  {
+    path: "/contextPage",
+    element: <ContextPage />,
+  },
+  {
+    path: "/products",
+    element: <ProductsPage />,
   },
 ]);
 

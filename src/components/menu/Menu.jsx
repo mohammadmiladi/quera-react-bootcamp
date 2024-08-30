@@ -31,6 +31,30 @@ const Menu = () => {
             <p>Hooks</p>
           </Link>
         </li>
+        <li>
+          <img src={Favorites} alt="Posts" />
+          <Link to="/posts">Posts</Link>
+        </li>
+        <li>
+          <img src={Favorites} alt="useRef" />
+          <Link to="/useRef">useRef</Link>
+        </li>
+        <li>
+          <img src={Favorites} alt="UseMemoPage" />
+          <Link to="/UseMemo">UseMemo</Link>
+        </li>
+        <li>
+          <img src={Favorites} alt="UseLayoutEffectPage" />
+          <Link to="/UseLayoutEffect">UseLayoutEffectPage</Link>
+        </li>
+        <li>
+          <img src={Favorites} alt="ContextPage" />
+          <Link to="/contextPage">ContextPage</Link>
+        </li>
+        <li>
+          <img src={Favorites} alt="ContextPage" />
+          <Link to="/contextPage">ContextPage</Link>
+        </li>
       </ul>
     </aside>
   );
