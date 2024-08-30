@@ -6,30 +6,28 @@ import { IoSunny } from "react-icons/io5";
 import { useState, useEffect } from "react";
 
 const Navbar = () => {
-  const [dark, setDark] = useState("");
+  const [theme, setTheme] = useState("light");
 
-  // useEffect(() => {
-  //   const d = localStorage.getItem("darkMode");
-  //   if (d !== null) {
-  //     setDark(d === "true");
-  //   }
-  // }, []);
+  useEffect(() => {
+    const localTheme = localStorage.getItem("theme");
+    if (localTheme === "dark") {
+      setTheme("dark");
+    }
+  }, []);
 
-  // useEffect(() => {
-  //   if (dark !== null) {
-  //     localStorage.setItem("darkMode", dark);
-  //     if (dark) {
-  //       document.body.classList.add("dark");
-  //     } else {
-  //       document.body.classList.remove("dark");
-  //     }
-  //   }
-  // }, [dark]);
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [theme]);
 
-  // const darkModeHandler = () => {
-  //   setDark(!dark);
-  //   document.body.classList.toggle("dark");
-  // };
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
 
   return (
     <div className={styles.navbar}>
@@ -43,9 +41,8 @@ const Navbar = () => {
         </div>
       </div>
       <div>
-        <button onClick={() => setDark(!dark)}>
-          {dark && <IoSunny />}
-          {!dark && <IoMoon />}
+        <button onClick={() => toggleTheme()}>
+          {theme === "light" ? <IoMoon /> : <IoSunny />}
         </button>
       </div>
     </div>
