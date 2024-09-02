@@ -2,8 +2,6 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./design/main.css";
 import Home from "./pages/home/Home";
-import About from "./pages/stepper/Stepper";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "./pages/404/NotFound";
 import FormPage from "./pages/form/Form";
 import StepperPage from "./pages/stepper/Stepper";
@@ -18,69 +16,81 @@ import UseRefPage from "./pages/useRef/UseRef";
 import UseMemoPage from "./pages/useMemo/UseMemo";
 import UseLayoutEffectPage from "./pages/useLayoutEffect/UseLayoutEffect";
 import ContextPage from "./pages/contextPage/ContextPage";
-import ProductsPage from "./pages/productsPage/ProductsPage";
+import ProductsPage from "./pages/products/Products";
+import Dashboard from "./pages/dashboard/Dashboard";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
     errorElement: <NotFound />,
-  },
-  {
-    path: "/stepper",
-    element: <StepperPage />,
-  },
-  {
-    path: "/form",
-    element: <FormPage />,
-  },
-  {
-    path: "/components",
-    element: <Components />,
     children: [
       {
-        path: "toggle",
-        element: <TogglePage />,
+        index: true,
+        path: "/dashboard",
+        element: <Dashboard />,
       },
       {
-        path: "timer",
-        element: <TimerPage />,
+        path: "/stepper",
+        element: <StepperPage />,
       },
-    ],
-  },
-  {
-    path: "hooks",
-    element: <HooksPage />,
-    children: [
       {
-        path: "useReducer",
-        element: <UseReducerPage />,
+        path: "/form",
+        element: <FormPage />,
+      },
+      {
+        path: "/components",
+        element: <Components />,
+        children: [
+          {
+            path: "",
+            element: <Components />,
+          },
+          {
+            path: "toggle",
+            element: <TogglePage />,
+          },
+          {
+            path: "timer",
+            element: <TimerPage />,
+          },
+        ],
+      },
+      {
+        path: "hooks",
+        element: <HooksPage />,
+        children: [
+          {
+            path: "useReducer",
+            element: <UseReducerPage />,
+          },
+        ],
+      },
+      {
+        path: "/posts",
+        element: <PostsPage />,
+      },
+      {
+        path: "/useRef",
+        element: <UseRefPage />,
+      },
+      {
+        path: "/UseMemo",
+        element: <UseMemoPage />,
+      },
+      {
+        path: "/UseLayoutEffect",
+        element: <UseLayoutEffectPage />,
+      },
+      {
+        path: "/contextPage",
+        element: <ContextPage />,
+      },
+      {
+        path: "/products",
+        element: <ProductsPage />,
       },
     ],
-  },
-  {
-    path: "/posts",
-    element: <PostsPage />,
-  },
-  {
-    path: "/useRef",
-    element: <UseRefPage />,
-  },
-  {
-    path: "/UseMemo",
-    element: <UseMemoPage />,
-  },
-  {
-    path: "/UseLayoutEffect",
-    element: <UseLayoutEffectPage />,
-  },
-  {
-    path: "/contextPage",
-    element: <ContextPage />,
-  },
-  {
-    path: "/products",
-    element: <ProductsPage />,
   },
 ]);
 

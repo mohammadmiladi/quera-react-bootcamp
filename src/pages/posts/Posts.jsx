@@ -34,14 +34,7 @@ const PostsPage = () => {
 
   if (state.loading) return <p>Loading ...</p>;
   if (state.error) return <p>Error: {state.error.message}</p>;
-  return (
-    <div className={styles.adminPanel}>
-      <Logo />
-      <Navbar />
-      <Menu />
-      <div>{state.data?.title}</div>
-    </div>
-  );
+  return <div>{state.data?.title}</div>;
 };
 
 export default PostsPage;

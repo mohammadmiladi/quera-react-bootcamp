@@ -1,7 +1,3 @@
-import Logo from "../../components/logo/Logo";
-import Navbar from "../../components/navbar/Navbar";
-import Menu from "../../components/menu/Menu";
-import styles from "../home/home.module.css";
 import { useEffect, useState, useMemo } from "react";
 
 const UseMemoPage = () => {
@@ -34,14 +30,9 @@ const UseMemoPage = () => {
   const performanceData = useMemo(() => largeComputed(), [data]);
 
   return (
-    <div className={styles.adminPanel}>
-      <Logo />
-      <Navbar />
-      <Menu />
-      <div>
-        <button onClick={() => setToggle(!toggle)}>Toggle</button>
-        <div>{performanceData}</div>
-      </div>
+    <div>
+      <button onClick={() => setToggle(!toggle)}>Toggle</button>
+      <div>{performanceData}</div>
     </div>
   );
 };

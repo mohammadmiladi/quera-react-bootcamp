@@ -1,20 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Card from "../common/Card";
+import { ProductContext } from "../../pages/products/Products";
 
 const Posts = () => {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => response.json())
-      .then((data) => {
-        setPosts(data);
-      })
-      .catch((err) => console.log("error:", err));
-  }, []);
+  const posts = useContext(ProductContext);
   return (
     <Card>
-      <h2>Posts:</h2>
+      <h2>Products:</h2>
       <ul>
         {posts.map((post) => (
           <li className="border border-solid border-gray-300 p-1" key={post.id}>

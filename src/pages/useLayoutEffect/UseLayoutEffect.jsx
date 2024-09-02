@@ -17,18 +17,13 @@ const UseLayoutEffectPage = () => {
   }, []);
 
   return (
-    <div className={styles.adminPanel}>
-      <Logo />
-      <Navbar />
-      <Menu />
-      <div>
-        <input
-          className="border border-solid"
-          type="text"
-          value="Mohammad"
-          ref={inputRef}
-        />
-      </div>
+    <div>
+      <input
+        className="border border-solid"
+        type="text"
+        value="Mohammad"
+        ref={inputRef}
+      />
     </div>
   );
 };
