@@ -1,21 +1,14 @@
-import Logo from "../../components/logo/Logo";
-import Navbar from "../../components/navbar/Navbar";
-import Menu from "../../components/menu/Menu";
-import Content from "../../components/content/Content";
-import styles from "../home/home.module.css";
-import Form from "../../components/form/Form";
-import { Outlet } from 'react-router-dom'
+import { Outlet } from "react-router-dom";
 
 const ComponentsPage = () => {
   return (
-    <div className={styles.adminPanel}>
-      <Logo />
-      <Navbar />
-      <Menu />
-      <div>
-        <h3>Components:</h3>
-        <Outlet />
-      </div>
+    <div>
+      <h3>Components:</h3>
+      <Button
+        buttonStyle="rounded bg-blue-500 py-1 px-7 text-white"
+        title="Toggle Component"
+      />
+      <Outlet />
     </div>
   );
 };

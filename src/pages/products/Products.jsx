@@ -1,17 +1,28 @@
-import Logo from "../../components/logo/Logo";
-import Navbar from "../../components/navbar/Navbar";
-import Menu from "../../components/menu/Menu";
-import styles from "../home/home.module.css";
+import Posts from "../../components/posts/Posts";
+import { createContext, useState, useEffect } from "react";
+
+const ProductContext = createContext();
 
 const ProductsPage = () => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((response) => response.json())
+      .then((data) => {
+        setPosts(data);
+      })
+      .catch((err) => console.log("error:", err));
+  }, []);
+
   return (
-    <div className={styles.adminPanel}>
-      <Logo />
-      <Navbar />
-      <Menu />
-      <div>Products</div>
-    </div>
+    <ProductContext.Provider value={posts}>
+      <div>
+        <Posts />
+      </div>
+    </ProductContext.Provider>
   );
 };
 
 export default ProductsPage;
+export { ProductContext };

@@ -10,8 +10,8 @@ const Menu = () => {
       <ul>
         <li>
           <img src={Dashboard} alt="dashboard" />
-          {/* <a href="/">Dashboard</a> */}
-          <Link to="/">Dashboard</Link>
+          {/* <a href="/">Dashboard</a>  BAD EXPERIENCE*/}
+          <Link to="/dashboard">Dashboard</Link>
         </li>
         <li>
           <img src={Products} alt="products" />
@@ -52,8 +52,8 @@ const Menu = () => {
           <Link to="/contextPage">ContextPage</Link>
         </li>
         <li>
-          <img src={Favorites} alt="ContextPage" />
-          <Link to="/contextPage">ContextPage</Link>
+          <img src={Favorites} alt="products" />
+          <Link to="/products">products</Link>
         </li>
       </ul>
     </aside>

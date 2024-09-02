@@ -44,17 +44,13 @@ const UseRefPage = () => {
   };
 
   return (
-    <div className={styles.adminPanel}>
-      <Logo />
-      <Navbar />
-      <Menu />
-      <div>
-        {/* <input
+    <div>
+      {/* <input
           ref={inputRef}
           className="p-4 border border-solid border-black"
           type="text"
         /> */}
-        {/* <p>Current: {count}</p>
+      {/* <p>Current: {count}</p>
         <p>Prev: {prevCount}</p>
         <button
           onClick={() => setCount(count + 1)}
@@ -62,13 +58,12 @@ const UseRefPage = () => {
         >
           Increment
         </button> */}
-        <button className="border border-solid" onClick={startTimer}>
-          Start Timer
-        </button>
-        <button className="border border-solid" onClick={stopTimer}>
-          Stop Timer
-        </button>
-      </div>
+      <button className="border border-solid" onClick={startTimer}>
+        Start Timer
+      </button>
+      <button className="border border-solid" onClick={stopTimer}>
+        Stop Timer
+      </button>
     </div>
   );
 };
