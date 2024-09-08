@@ -1,60 +1,97 @@
 import styles from "./menu.module.css";
-import Dashboard from "../../assets/images/dashboard.png";
-import Products from "../../assets/images/products.png";
-import Favorites from "../../assets/images/favorites.png";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { BsBarChartSteps } from "react-icons/bs";
+import { FaFileWaveform } from "react-icons/fa6";
+import { MdSpaceDashboard } from "react-icons/md";
+import { LuComponent } from "react-icons/lu";
+import { MdWebhook } from "react-icons/md";
+import { BsFillPostcardHeartFill } from "react-icons/bs";
+import { GiFireflake } from "react-icons/gi";
+import { MdOutlineProductionQuantityLimits } from "react-icons/md";
+import { PiMemory } from "react-icons/pi";
+import { BsLayoutWtf } from "react-icons/bs";
+import { FaWindowRestore } from "react-icons/fa";
 
 const Menu = () => {
+  const [menus] = useState([
+    {
+      name: "dashboard",
+      route: "/dashboard",
+      image: <MdSpaceDashboard />,
+      id: 1,
+    },
+    {
+      name: "form",
+      route: "/form",
+      image: <FaFileWaveform />,
+      id: 2,
+    },
+    {
+      name: "stepper",
+      route: "/stepper",
+      image: <BsBarChartSteps />,
+      id: 3,
+    },
+    {
+      name: "components",
+      route: "/components",
+      image: <LuComponent />,
+      id: 4,
+    },
+    {
+      name: "hooks",
+      route: "/hooks",
+      image: <MdWebhook />,
+      id: 5,
+    },
+    {
+      name: "posts",
+      route: "/posts",
+      image: <BsFillPostcardHeartFill />,
+      id: 6,
+    },
+    {
+      name: "use ref",
+      route: "/useRef",
+      image: <GiFireflake />,
+      id: 7,
+    },
+    {
+      name: "use memo",
+      route: "/useMemo",
+      image: <PiMemory />,
+      id: 8,
+    },
+    {
+      name: "use layout effect",
+      route: "/useLayoutEffect",
+      image: <BsLayoutWtf />,
+      id: 9,
+    },
+    {
+      name: "context",
+      route: "/contextPage",
+      image: <FaWindowRestore />,
+      id: 10,
+    },
+    {
+      name: "products",
+      route: "/products",
+      image: <MdOutlineProductionQuantityLimits />,
+      id: 11,
+    },
+  ]);
+
   return (
     <aside className={styles.menu}>
       <ul>
-        <li>
-          <img src={Dashboard} alt="dashboard" />
-          {/* <a href="/">Dashboard</a>  BAD EXPERIENCE*/}
-          <Link to="/dashboard">Dashboard</Link>
-        </li>
-        <li>
-          <img src={Products} alt="products" />
-          <Link to="/form">Form</Link>
-        </li>
-        <li>
-          <img src={Favorites} alt="Favorites" />
-          <Link to="/stepper">Stepper</Link>
-        </li>
-        <li>
-          <img src={Favorites} alt="Components" />
-          <Link to="/components">Components</Link>
-        </li>
-        <li>
-          <Link to="/hooks">
-            <img src={Favorites} alt="Hooks" />
-            <p>Hooks</p>
-          </Link>
-        </li>
-        <li>
-          <img src={Favorites} alt="Posts" />
-          <Link to="/posts">Posts</Link>
-        </li>
-        <li>
-          <img src={Favorites} alt="useRef" />
-          <Link to="/useRef">useRef</Link>
-        </li>
-        <li>
-          <img src={Favorites} alt="UseMemoPage" />
-          <Link to="/UseMemo">UseMemo</Link>
-        </li>
-        <li>
-          <img src={Favorites} alt="UseLayoutEffectPage" />
-          <Link to="/UseLayoutEffect">UseLayoutEffectPage</Link>
-        </li>
-        <li>
-          <img src={Favorites} alt="ContextPage" />
-          <Link to="/contextPage">ContextPage</Link>
-        </li>
-        <li>
-          <img src={Favorites} alt="products" />
-          <Link to="/products">products</Link>
-        </li>
+        {menus.map((menu) => (
+          <li key={menu.id}>
+            {menu.image}
+            <Link to={menu.route}>{menu.name}</Link>
+          </li>
+        ))}
       </ul>
     </aside>
   );

@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom";
+import Button from '../../components/common/Button'
 
 const ComponentsPage = () => {
   return (

@@ -26,7 +26,10 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       {
-        index: true,
+        path: "",
+        element: <Dashboard />,
+      },
+      {
         path: "/dashboard",
         element: <Dashboard />,
       },
@@ -43,10 +46,6 @@ const router = createBrowserRouter([
         element: <Components />,
         children: [
           {
-            path: "",
-            element: <Components />,
-          },
-          {
             path: "toggle",
             element: <TogglePage />,
           },
@@ -60,6 +59,10 @@ const router = createBrowserRouter([
         path: "hooks",
         element: <HooksPage />,
         children: [
+          {
+            path: "",
+            element: <UseReducerPage />,
+          },
           {
             path: "useReducer",
             element: <UseReducerPage />,
