@@ -81,6 +81,24 @@ const Menu = () => {
       image: <MdOutlineProductionQuantityLimits />,
       id: 11,
     },
+    {
+      name: "Users",
+      route: "/users",
+      image: <MdOutlineProductionQuantityLimits />,
+      id: 12,
+    },
+    {
+      name: "Add User",
+      route: "/add-user",
+      image: <MdOutlineProductionQuantityLimits />,
+      id: 15,
+    },
+    {
+      name: "Posts Comments",
+      route: "/posts-comments",
+      image: <MdOutlineProductionQuantityLimits />,
+      id: 17,
+    },
   ]);
 
   return (
