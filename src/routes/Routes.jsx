@@ -22,6 +22,7 @@ import UsersPage from "../pages/users/Users";
 import AddUser from "../pages/addUser/AddUser";
 import User from "../pages/user/User";
 import PostsComments from "../pages/postsComments/PostsComments";
+import Divar from "../pages/divar/Divar";
 
 const router = createBrowserRouter([
   {
@@ -112,6 +113,10 @@ const router = createBrowserRouter([
       {
         path: "/posts-comments",
         element: <PostsComments />,
+      },
+      {
+        path: "/divar",
+        element: <Divar />,
       },
     ],
   },

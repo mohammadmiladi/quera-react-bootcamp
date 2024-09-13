@@ -99,6 +99,12 @@ const Menu = () => {
       image: <MdOutlineProductionQuantityLimits />,
       id: 17,
     },
+    {
+      name: "Divar",
+      route: "/divar",
+      image: <MdOutlineProductionQuantityLimits />,
+      id: 18,
+    },
   ]);
 
   return (

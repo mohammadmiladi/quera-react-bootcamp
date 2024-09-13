@@ -14,29 +14,47 @@ const AddUser = () => {
 
   const navigate = useNavigate();
 
-  const controller = new AbortController();
-  const signal = controller.signal;
+  // Signal:
+  // const controller = new AbortController();
+  // const signal = controller.signal;
+
+  // cancelToken
+  const CancelToken = axios.CancelToken;
+  const source = CancelToken.source();
 
   const submitForm = (e) => {
     e.preventDefault();
     axios
       .post("https://reqres.in/api/register", formData, {
-        signal,
+        // signal,
+        cancelToken: source.token,
       })
       .then((res) => {
         //   console.log(res);
         navigate("/users");
       })
       .catch((err) => {
-        if (err.name === "AbortError") {
-          console.log("Request was Aborted");
+        // Signal
+        // if (err.name === "AbortError") {
+        //   console.log("Request was Aborted");
+        // } else {
+        //   setError(err);
+        // }
+
+        // CancelToken
+        if (axios.isCancel(thrown)) {
+          console.log("Request canceled", thrown.message);
         } else {
           setError(err);
         }
       });
 
     setTimeout(() => {
-      controller.abort();
+      // Signal
+      // controller.abort();
+
+      // CancelToken
+      source.cancel("Operation canceled by the user.");
     }, 500);
   };
   // const submitForm = (e) => {

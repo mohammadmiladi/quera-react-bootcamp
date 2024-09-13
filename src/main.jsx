@@ -5,9 +5,15 @@ import "./design/main.css";
 import { RouterProvider } from "react-router-dom";
 import router from "./routes/Routes";
 
+// Redux
+import { Provider } from "react-redux";
+import store from "./store/index";
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
     {/* <BrowserRouter>
       <Routes>
         <Route index element={<Home />}></Route>
