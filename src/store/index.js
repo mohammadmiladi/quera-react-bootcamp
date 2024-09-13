@@ -1,16 +1,29 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux'
+// import { createStore, combineReducers, applyMiddleware } from 'redux'
+// import { thunk } from 'redux-thunk'
+import { configureStore } from '@reduxjs/toolkit';
+
 import usersReducer from './users/users'
 import adsReducer from './ads/ads'
-import { thunk } from 'redux-thunk'
 
-const rootReducer = combineReducers({
-    users: usersReducer,
-    ads: adsReducer
+const store = configureStore({
+    reducer: {
+        users: usersReducer,
+        ads: adsReducer
+    }
 })
 
-const store = createStore(rootReducer, applyMiddleware(thunk))
-
 export default store;
+// Classic Redux
+// const rootReducer = combineReducers({
+//     users: usersReducer,
+//     ads: adsReducer
+// })
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// const store = createStore(
+//     rootReducer,
+//     composeEnhancers(applyMiddleware(thunk))
+// )
+
 // store.dispatch({ type: "users/balance", value: 10000 })
 
 // Create Action Creators

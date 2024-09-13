@@ -5,6 +5,7 @@ import store from "../../store/index";
 
 import { useDispatch, connect } from "react-redux";
 import { createUser, fetchUsers } from "../../store/users/users";
+import { createAds } from "../../store/ads/ads";
 
 // store.dispatch({
 //   type: "users/addUser",
@@ -32,9 +33,9 @@ const Divar = ({ state }) => {
     console.log("global state:", state);
   }, [state]);
 
-  useEffect(() => {
-    dispatch(fetchUsers());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchUsers());
+  // }, []);
 
   const handleClick = () => {
     dispatch(
@@ -44,6 +45,16 @@ const Divar = ({ state }) => {
         email: "mohammad2@gmail.com",
         age: 35,
         balance: 19000,
+      })
+    );
+  };
+
+  const handleAdsClick = () => {
+    dispatch(
+      createAds({
+        title: "Test",
+        description: "Test 2 ",
+        price: 18000,
       })
     );
   };
@@ -59,7 +70,7 @@ const Divar = ({ state }) => {
             <p>{user.age}</p>
           </div>
         ))} */}
-        {state.users.userList.map((user) => (
+        {state.users.userList?.map((user) => (
           <div key={user.id} className="p-5 rounded shadow-md bg-white">
             <img
               src={user.avatar}
@@ -76,6 +87,9 @@ const Divar = ({ state }) => {
         <h2>Add User:</h2>
         <button className=" bg-blue-300" onClick={() => handleClick()}>
           Add User
+        </button>
+        <button className=" bg-blue-300" onClick={() => handleAdsClick()}>
+          Add Ads
         </button>
       </div>
     </div>
